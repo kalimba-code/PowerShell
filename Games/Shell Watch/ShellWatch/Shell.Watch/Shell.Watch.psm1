@@ -160,7 +160,7 @@ function Start-ShellWatch {
 
     # Test if the user is syncing to OneDrive or not and set the path to the program folder (Titled "Kalimba") appropriately
     if (Test-Path -Path "$($HOME)\*\Documents") { 
-        $KalimbaFolder = Get-ItemProperty -Path "C:\$ENV:USERNAME\*\Documents\Kalimba" | Select-Object -ExpandProperty FullName 
+        $KalimbaFolder = Get-ItemProperty -Path "$($HOME)\*\Documents\Kalimba" | Select-Object -ExpandProperty FullName 
     } else {
         $KalimbaFolder = "$($HOME)\Documents\Kalimba" 
     }
