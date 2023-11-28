@@ -45,7 +45,7 @@ Write-Host "Creating the Kalimaba folder and subfolders in Documents..."
 [void](New-Item -Type Directory -Name "Bowl" -Path $KalimbaFolder)
 
 # The default module path I see recommend in Microsoft Documentation that doesn't require Admin rights
-$PSModPath = "$($HOME)\Documents\WindowsPowerShell\Modules"
+$PSModPath = "$DocumentsPath\WindowsPowerShell\Modules"
 
 if ((Test-Path -Path $PSModPath) -eq $false) {
     Write-Host "Creating the $PSModPath folder..."
