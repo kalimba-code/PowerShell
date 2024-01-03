@@ -1,4 +1,4 @@
-# PowerShell Hangman v2.0
+# PowerShell Hangman v2.1
 # Programed by Kalimba in Visual Studio Code for PowerShellv5 and up
 # Works in Windows 10 and Windows 11
 
