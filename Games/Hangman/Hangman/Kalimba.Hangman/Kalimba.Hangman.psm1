@@ -13,16 +13,12 @@
 
 function Start-Hangman {
 
-    <################## 
-      Set folder paths
-    ###################>
+    <################################# 
+      Set and Create the folder paths
+    ##################################>
 
-    # Test if the user is syncing to OneDrive or not and set the path to the program folder (Titled "Kalimba") appropriately
-    if (Test-Path -Path "$($HOME)\*\Documents") { 
-        $KalimbaFolder = Get-ItemProperty -Path "$($HOME)\*\Documents\Kalimba" | Select-Object -ExpandProperty FullName 
-    } else {
-        $KalimbaFolder = "$($HOME)\Documents\Kalimba" 
-    }
+    # Set the path to the Kalimba folder using the System.Environment .NET Framework class
+    $KalimbaFolder = "$([environment]::GetFolderPath("mydocument"))\Kalimba"
 
     # Set the path to the folder containing the lexicons
     $LexiconFolder = "$KalimbaFolder\Hangman\Lexicons"
@@ -43,11 +39,13 @@ function Start-Hangman {
 
     # Get the sprite sheet. UTF8 encoding is needed for the block characters
     $SpriteSheet = Get-Content -Path "$KalimbaFolder\Hangman\Assets\SpriteSheet.txt" -Encoding utf8
+
     # Split the sprite sheet into seperate sprites. We use -join to convert the array into a single string and then split it up on the ampersand
     $SlicedSprites = ($SpriteSheet -join "`n").Split("&")
 
     # Make an array with the alphabet for future input validation
     $Alphabet = @("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z")
+
     # Make an array with all the body parts for future incorrect messages
     $BodyParts = @("head","torso","left arm","right arm","left leg","right leg")  
 
@@ -156,6 +154,7 @@ function Start-Hangman {
 
         # Set the number of wrong guesses
         $NumOfWrongGuesses = 0
+        
         # Set the sprite number. It is set to 2 because 0 is the description in the spritesheet and 1 is the menu screen.
         $SpriteNum = 2
 
@@ -235,6 +234,7 @@ function Start-Hangman {
         # Trim the strings to remove the extra blank spaces
         $GuessArray = $GuessArray.TrimEnd(" ")
         $CorrectArray = $CorrectArray.TrimEnd(" ")
+
         # Split up the strings into an actual array
         $GuessArray = @($GuessArray -split "")
         $CorrectArray = @($CorrectArray -split "")

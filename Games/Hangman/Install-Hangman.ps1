@@ -5,19 +5,9 @@
 # Clear the pasted text
 Clear-Host
 
-# Test if OneDrive is backing up the Desktop and set the path accordingly
-if (Test-Path -Path "$($HOME)\*\Desktop") { 
-    $DesktopPath = Get-ItemProperty -Path "$($HOME)\*\Desktop" | Select-Object -ExpandProperty FullName 
-} else {
-    $DesktopPath = "$($HOME)\Desktop" 
-}
-
-# Test if OneDrive is backing up the Documents and set the path accordingly
-if (Test-Path -Path "$($HOME)\*\Documents") { 
-    $DocumentsPath = Get-ItemProperty -Path "$($HOME)\*\Documents" | Select-Object -ExpandProperty FullName 
-} else {
-    $DocumentsPath = "$($HOME)\Documents" 
-}
+# Set environmental paths for the Documents and Desktop folders
+$DocumentsPath = [environment]::GetFolderPath("mydocument")
+$DesktopPath = [environment]::GetFolderPath("desktop")
 
 # Set the other reusable path variables
 $KalimbaPath = "$DocumentsPath\Kalimba"
