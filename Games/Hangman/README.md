@@ -7,7 +7,7 @@ This is a custom module that lets you play Hangman in a PowerShell window. All c
 1. Download the Hangman.zip folder to your Downloads folder.
 2. Select all of the code (CTRL+A) in the Install-Hangman script and copy (CTRL+C) it.
 3. Paste (CTRL+V) the code into a PowerShell window (no Admin privilege required!) and press Enter.
-    - If you are running Windows 11, it is better to paste the code into the Windows PowerShell ISE (search for it). It will work in a regular window, it just won't look pretty. Essentially the Windows 11 built-in in PowerShell executes each line of code as it appears, while the ISE treats it as a script like the Windows 10 build-in PowerShell does.
+    - If you are running Windows 11, paste the code into Windows PowerShell ISE (search for it) instead of the regular PowerShell window. Essentially the Windows 11 built-in PowerShell executes each line of code as it appears which breaks things, while the ISE treats it as a script like the Windows 10 built-in PowerShell does.
 
 When the install script is done, there will be a couple of new folders and files on your computer. If this is the first Kalimba program you have installed, a Kalimba folder will show up in your Documents folders. In the Kalimba folder there will be a Hangman folder, with two more sub folders, Assets and Lexicons. Assets stores the SpriteSheet.txt used for all ASCII displays and the .ico for the desktop icon. The Lexicons folder is where the comma separated .txt files full of words are located. The name of the file will be used as the theme.
 
